@@ -1,0 +1,357 @@
+.animal-cave-game {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #2d5016 0%, #5a8a3a 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.game-header h2 {
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 12px;
+}
+
+.reset-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d5016;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-instructions {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.game-instructions p {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.caves-section,
+.animals-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.caves-section h3,
+.animals-section h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.caves-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.cave-container {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cave-container:hover {
+  transform: translateY(-5px);
+}
+
+.cave {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  margin: 0 auto 10px;
+}
+
+.cave-entrance {
+  width: 60px;
+  height: 40px;
+  background: linear-gradient(180deg, #8b4513 0%, #654321 100%);
+  margin: 0 auto;
+  border-radius: 50% 50% 0 0;
+  border: 3px solid #5a2d0c;
+  border-bottom: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cave-interior {
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(180deg, #654321 0%, #3d2817 100%);
+  border: 3px solid #5a2d0c;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.animal-in-cave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-emoji-large {
+  font-size: 48px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.cave-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  border: 2px solid #2d5016;
+  transition: all 0.3s ease;
+}
+
+.cave-container:hover .cave-label {
+  background: #2d5016;
+  color: white;
+  transform: scale(1.1);
+}
+
+.cave-complete {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  background: #43e97b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.animals-table {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  min-height: 200px;
+}
+
+.animal {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0 auto;
+  background: white;
+}
+
+.animal:hover:not(.animal-placed) {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: #2d5016;
+}
+
+.animal.selected {
+  border-color: #2d5016;
+  border-width: 5px;
+  box-shadow: 0 0 0 4px rgba(45, 80, 22, 0.3), 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15);
+  background: rgba(45, 80, 22, 0.1);
+}
+
+.animal.animal-placed {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: scale(0.8);
+}
+
+.animal-emoji {
+  font-size: 48px;
+}
+
+
+.win-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.trophy {
+  font-size: 120px;
+  animation: bounceTrophy 1s ease infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes bounceTrophy {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(-10deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.win-screen h2 {
+  font-size: 48px;
+  color: white;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.win-screen p {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+}
+
+.final-score {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 20px 0;
+}
+
+.play-again-button {
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.play-again-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(67, 233, 123, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .caves-grid-8 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    grid-template-columns: 1fr;
+  }
+
+  .caves-grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .animals-table {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .game-header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

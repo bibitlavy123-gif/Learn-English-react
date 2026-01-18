@@ -1,0 +1,239 @@
+.days-of-week-game {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.game-header h2 {
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.skip-button,
+.reset-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skip-button {
+  background: rgba(255, 193, 7, 0.9);
+  color: #333;
+}
+
+.skip-button:hover {
+  background: rgba(255, 193, 7, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-section,
+.days-store-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.calendar-section h3,
+.days-store-section h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+  justify-items: center;
+}
+
+.months-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calendar-slot {
+  width: 120px;
+  height: 140px;
+  border: 3px solid #333;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.calendar-slot:hover:not(.filled) {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: scale(1.05);
+}
+
+.calendar-slot.ready-for-selection:not(.filled):hover {
+  border-color: #43e97b;
+  background: rgba(67, 233, 123, 0.2);
+}
+
+.calendar-slot.filled {
+  border-color: #43e97b;
+  background: rgba(67, 233, 123, 0.1);
+  cursor: default;
+}
+
+.slot-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.slot-day-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding: 4px 8px;
+  background: rgba(67, 233, 123, 0.2);
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.days-store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.day-item {
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #667eea;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 150px;
+  user-select: none;
+}
+
+.day-item:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.day-item.selected {
+  background: #667eea;
+  color: white;
+  border-color: #43e97b;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+  transform: scale(1.05);
+}
+
+.day-item:active {
+  transform: scale(0.95);
+}
+
+.completion-message {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.completion-message h2 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.completion-message p {
+  color: #666;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.play-again-button {
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-again-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(67, 233, 123, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .calendar-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .days-store-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .game-header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
